@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cms.apps.CmsConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'cms.User'
+LOGIN_URL = 'cms:login'
+LOGIN_REDIRECT_URL = 'cms:top'
+LOGOUT_REDIRECT_URL = 'cms:top'
