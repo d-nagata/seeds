@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{%block title %}workpost | {% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+                <label class="label">ユーザーネーム</label>
+                <div class="control has-icons-left">
+                    {{ form.name }}
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
+        </div>
+        <div class="field">
+            <label class="label">内容</label>
+            <div class="control has-icons-left">
+                { form.contents }}
+                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">作者</label>
+            <div class="control has-icons-left">
+                { form.create_user }}
+                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">日時</label>
+            <div class="control has-icons-left">
+                { form.create_date }}
+                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            </div>
+        </div>
+        <div class="field">
+            <p class="control">
+                <input type="submit" value="投稿" class="button is-success">
+            </p>
+        </div>
+
+{% endblock %}
