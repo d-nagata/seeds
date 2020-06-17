@@ -6,6 +6,7 @@ app_name = 'cms'
 
 urlpatterns = [
     path('', views.TopView.as_view(), name='top'),
+    path('about/', views.AboutView.as_view(), name="about"),
     path('login/', views.Login.as_view(), name='login'),
     path('logout/', views.Logout.as_view(), name='logout'),
     path('signup/', views.UserCreate.as_view(), name='signup'),
@@ -13,4 +14,7 @@ urlpatterns = [
     path('user/<int:pk>/', views.UserDetail.as_view(), name='user_detail'),
     path('user/', views.UserList.as_view(), name='user_list'),
     path('user/<int:pk>/delete/', views.UserDelete.as_view(), name='user_delete'),
+    path('workpost/', views.WorkPost.as_view(), name="workpost"),
+    path('work_list/', views.WorkListView.as_view(), name="work_list"),
+
 ]
