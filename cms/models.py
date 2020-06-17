@@ -106,3 +106,11 @@ class AbstractUser(AbstractBaseUser, PermissionsMixin):
 class User(AbstractUser):
     class Meta(AbstractUser.Meta):
         swappable = "AUTH_USER_MODEL"
+
+class Work(models.Model):
+
+    title = models.CharField('タイトル', max_length = 255)
+    contents = models.CharField('欲しいもの', max_length = 255, blank = True)
+    create_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    create_date = models.DateTimeField(default=timezone.now)
+    fav = models.IntegerField('いいね数')
