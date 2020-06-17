@@ -10,17 +10,24 @@ from django.views.generic.edit import (
     CreateView,UpdateView, DeleteView,
 )
 from .forms import (
-    LoginForm, UserCreateForm, UserUpdateForm,
+    LoginForm, UserCreateForm, UserUpdateForm, WorkPostForm,
 )
 from .mixins import OnlyYouMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+
+from .models import (
+    Work,
+)
 
 UserModel = get_user_model()
 
 
 class TopView(TemplateView):
     template_name = 'cms/top.html'
+
+class AboutView(TemplateView):
+    template_name = 'cms/about.html'
 
 
 class Login(LoginView):
@@ -66,3 +73,15 @@ class UserDelete(OnlyYouMixin, DeleteView):
     model = UserModel
     template_name = 'cms/user_delete.html'
     success_url = reverse_lazy('cms:top')
+
+class WorkPost(CreateView):
+    model = Work
+    form_class = WorkPostForm
+    template_name = "cms/workpost.html"
+
+
+class WorkList(ListView):
+    work_list = Work.objects.all()
+    template_name = "cms/work_list.html"
+
+
