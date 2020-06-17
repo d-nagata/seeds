@@ -1,43 +1,50 @@
-{% extends "base.html" %}
+{% extends "cms/base.html" %}
 
 {%block title %}workpost | {% endblock %}
 
 {% block content %}
-
-    <form method="post">
-        {% csrf_token %}
-        <div class="field">
-                <label class="label">ユーザーネーム</label>
+<section class="section">
+    <div class="container is-mobile">
+        <h1 class="title is-4">投稿</h1>
+        <h2 class="subtitle is-6">What do you want?</h2>
+        <hr>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="field">
+                <label class="label">タイトル</label>
                 <div class="control has-icons-left">
-                    {{ form.name }}
+                    {{ form.title }}
                     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
                 </div>
-        </div>
-        <div class="field">
-            <label class="label">内容</label>
-            <div class="control has-icons-left">
-                { form.contents }}
-                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
             </div>
-        </div>
-        <div class="field">
-            <label class="label">作者</label>
-            <div class="control has-icons-left">
-                { form.create_user }}
-                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            <div class="field">
+                <label class="label">欲しいもの</label>
+                <div class="control has-icons-left">
+                    {{ form.contents }}
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <label class="label">日時</label>
-            <div class="control has-icons-left">
-                { form.create_date }}
-                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+            <div class="field">
+                <label class="label">投稿者名</label>
+                <div class="control has-icons-left">
+                    {{ form.create_user }}
+                    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <p class="control">
-                <input type="submit" value="投稿" class="button is-success">
-            </p>
-        </div>
-
+            <div class="field">
+                <label class="label">投稿日時</label>
+                <div class="control has-icons-left">
+                    {{ form.create_date }}
+                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                </div>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input type="submit" value="保存" class="button is-success">
+                    <input type="hidden" name="next" value="{{ next }}" >
+                </p>
+            </div>
+        </form>
+    </div>
+</section>
 {% endblock %}

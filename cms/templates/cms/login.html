@@ -13,9 +13,9 @@
         <form method="post" action="">
             {% csrf_token %}
             <div class="field">
-                <label class="label">ユーザーネーム</label>
+                <label class="label">メールアドレス</label>
                 <div class="control has-icons-left">
-                    {{ form.username }}
+                    {{ form.email }}
                     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
                 </div>
             </div>
