@@ -38,7 +38,7 @@ class UserUpdateForm(forms.ModelForm):
 class WorkPostForm(forms.ModelForm):
     class Meta:
         model = Work
-        fields = ("title", "contents", "create_user", "create_date", "fav")
+        fields = ("title", "contents", "create_user", "create_date")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields.values():
